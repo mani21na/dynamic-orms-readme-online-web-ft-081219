@@ -32,7 +32,7 @@ class Song
   end
 
   def save
-    sql = "INSERT INTO #{self.table_name} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
+    sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
     DB[:conn].execute(sql)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
   end
