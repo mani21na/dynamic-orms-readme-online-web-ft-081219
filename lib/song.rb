@@ -12,8 +12,6 @@ class Song
     DB[:conn].results_as_hash = true
 
     sql = "pragma table_info('#{table_name}')"
-    
-    binding.pry
 
     table_info = DB[:conn].execute(sql)
     column_names = []
@@ -21,6 +19,7 @@ class Song
       column_names << row["name"]
     end
     column_names.compact
+    binding.pry
   end
 
   self.column_names.each do |col_name|
