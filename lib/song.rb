@@ -19,6 +19,7 @@ class Song
       column_names << row["name"]
     end
     column_names.compact
+    binding.pry
   end
 
   self.column_names.each do |col_name|
@@ -41,6 +42,7 @@ class Song
     self.class.table_name
   end
 
+  # ?? I need digging it!!!********************************
   def values_for_insert
     values = []
     self.class.column_names.each do |col_name|
